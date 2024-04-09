@@ -36,9 +36,10 @@ app.put("/updateuser/:id", (req, res) => {
 
 app.delete("/deleteUser/:id", (req, res) => {
   const id = req.params.id;
-  userModel.findByIdAndDelete(
-    { _id: id }.then((res) => res.json(res)).catch((err) => res.json(err))
-  );
+  userModel
+    .findByIdAndDelete({ _id: id })
+    .then((res) => res.json(res))
+    .catch((err) => res.json(err));
 });
 
 app.post("/createUser", (req, res) => {
